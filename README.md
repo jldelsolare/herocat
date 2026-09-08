@@ -1,4 +1,5 @@
 <img width="800" height="450" alt="sin_nombre5" src="https://github.com/user-attachments/assets/b4003df1-2922-4b66-83c8-b50983786cdd" />
+
 # herocat
 
 CLI en Rust para clasificar automáticamente los juegos de tu biblioteca de **Heroic Games Launcher** usando la API de **IGDB**. Espero en un futuro poder agregar otras fuentes de datos como rawg.io y agregar más información a cada juego.
