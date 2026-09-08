@@ -94,7 +94,7 @@ Cada juego se guarda bajo su clave compuesta `{app_name}_{runner}` (formato inte
 
 ### Categorías detectadas al generar
 
-- Los juegos que IGDB no encuentra, o que devuelven sin genres/themes, aparecen al final de `generate` bajo "Juegos sin datos en IGDB".
+- Los juegos que IGDB no encuentra, o que devuelven sin genres/themes, aparecen al final de `generate` bajo "Juegos sin datos en IGDB". Se puede buscar el id de IGDB y asignarlo manualmente en `games.json`
 - Los errores de red se imprimen por separado y no cuentan como "sin datos".
 
 ## Estructura
@@ -115,5 +115,5 @@ src/
 
 ## Seguridad
 
-- Las credenciales **no** se guardan en el código ni en el repositorio: se leen de `IGDB_CLIENT_ID` y `IGDB_CLIENT_SECRET`.
+- Las credenciales **no** se guardan en el código ni en el repositorio, son variables de entorno: se leen de `IGDB_CLIENT_ID` y `IGDB_CLIENT_SECRET`.
 - No introduzcas el `client_secret` en chats, logs o la línea de comando compartida; regenera el secret en Twitch si se expuso.
