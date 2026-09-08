@@ -7,8 +7,10 @@ pub type SourceIds = BTreeMap<String, Vec<String>>;
 
 pub const SEED_CATEGORIES: &str = "data/categories.json";
 
+const EMBEDDED_SEED: &str = include_str!("../data/categories.json");
+
 fn seed_path() -> PathBuf {
-    PathBuf::from(env!("CARGO_MANIFEST_DIR")).join(SEED_CATEGORIES)
+    PathBuf::from(SEED_CATEGORIES)
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -44,16 +46,21 @@ impl CategoryRegistry {
         let seed = seed_path();
         let user_path = user_categories_path();
 
-        let (path, source) = if user_path.exists() {
-            (user_path.clone(), user_path.as_path())
+        let (path, content) = if user_path.exists() {
+            let content = std::fs::read_to_string(&user_path)
+                .with_context(|| format!("No se pudo leer {}", user_path.display()))?;
+            (user_path.clone(), content)
+        } else if seed.exists() {
+            let content = std::fs::read_to_string(&seed)
+                .with_context(|| format!("No se pudo leer {}", seed.display()))?;
+            (seed.clone(), content)
         } else {
-            (seed.clone(), seed.as_path())
+            let content = EMBEDDED_SEED.to_string();
+            (user_path.clone(), content)
         };
 
-        let content = std::fs::read_to_string(source)
-            .with_context(|| format!("No se pudo leer {}", source.display()))?;
         let mut data: CatalogData = serde_json::from_str(&content)
-            .with_context(|| format!("Error parseando {}", source.display()))?;
+            .with_context(|| format!("Error parseando {}", path.display()))?;
 
         if data.version == 0 {
             data.version = 1;
