@@ -1,6 +1,6 @@
 # herocat
 
-CLI en Rust para clasificar automáticamente los juegos de tu biblioteca de **Heroic Games Launcher** usando la API de **IGDB**.
+CLI en Rust para clasificar automáticamente los juegos de tu biblioteca de **Heroic Games Launcher** usando la API de **IGDB**. Espero en un futuro poder agregar otras fuentes de datos como rawg.io y agregar más información a cada juego.
 
 Cada juego se busca en IGDB, se extraen sus `genres` (mecánica) y `themes` (ambientación), y se escriben como categorías en `games.customCategories` del `config.json` de Heroic. Las categorías aparecen en la interfaz de Heroic sin configuración adicional.
 
