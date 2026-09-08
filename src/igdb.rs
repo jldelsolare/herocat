@@ -1,7 +1,8 @@
 use anyhow::{Context, Result, anyhow, bail};
+use std::collections::BTreeMap;
 use std::time::{Duration, Instant};
 
-use crate::models::{IgdbAuthResponse, IgdbGame};
+use crate::models::{IgdbAuthResponse, IgdbGame, IgdbSlugName};
 
 const AUTH_URL: &str = "https://id.twitch.tv/oauth2/token";
 const API_URL: &str = "https://api.igdb.com/v4/games";
@@ -71,18 +72,50 @@ impl IgdbClient {
     }
 
     pub async fn search_game(&mut self, name: &str) -> Result<Option<IgdbGame>> {
-        let token = self.ensure_token().await?;
-
-        self.rate_limit().await;
-
         let body = format!(
             "search \"{}\"; fields name,genres.*,themes.*; limit 1;",
             name.replace('"', "")
         );
+        self.query(body).await.map(|mut g| g.pop())
+    }
+
+    pub async fn get_game_by_id(&mut self, id: u64) -> Result<Option<IgdbGame>> {
+        let body = format!("fields name,genres.*,themes.*; where id = {id}; limit 1;");
+        self.query(body).await.map(|mut g| g.pop())
+    }
+
+    /// Resuelve el nombre canónico de cada slug contra los endpoints /themes y /genres de IGDB.
+    pub async fn canonical_names(&mut self, slugs: &[&str]) -> Result<BTreeMap<String, String>> {
+        let quoted: Vec<String> = slugs.iter().map(|s| format!("\"{s}\"")).collect();
+        let filter = format!("where slug = ( {} );", quoted.join(","));
+        let mut names = BTreeMap::new();
+        for endpoint in ["themes", "genres"] {
+            let body = format!("fields name,slug; {filter} limit 500;");
+            let resp = self.request(&format!("https://api.igdb.com/v4/{endpoint}"), body).await?;
+            let found: Vec<IgdbSlugName> = resp
+                .json()
+                .await
+                .context("Error parseando respuesta de names")?;
+            for item in found {
+                names.insert(item.slug, item.name);
+            }
+        }
+        Ok(names)
+    }
+
+    async fn query(&mut self, body: String) -> Result<Vec<IgdbGame>> {
+        let resp = self.request(API_URL, body).await?;
+        let games: Vec<IgdbGame> = resp.json().await.context("Error parseando respuesta")?;
+        Ok(games)
+    }
+
+    async fn request(&mut self, url: &str, body: String) -> Result<reqwest::Response> {
+        let token = self.ensure_token().await?;
+        self.rate_limit().await;
 
         let resp = self
             .http
-            .post(API_URL)
+            .post(url)
             .header("Client-ID", &self.client_id)
             .header("Authorization", format!("Bearer {}", token))
             .body(body)
@@ -96,9 +129,7 @@ impl IgdbClient {
         if !resp.status().is_success() {
             bail!("IGDB respondió con código {}", resp.status());
         }
-
-        let games: Vec<IgdbGame> = resp.json().await.context("Error parseando respuesta")?;
-        Ok(games.into_iter().next())
+        Ok(resp)
     }
 
     async fn rate_limit(&mut self) {

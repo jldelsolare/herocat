@@ -56,6 +56,15 @@ herocat generate
 # Probar con los primeros 5 juegos (útil para validar antes de procesar todo)
 herocat generate --limit 5
 
+# Procesar un solo juego (app_name_runner o título)
+herocat generate 007ff8f4e30845a687e66aa77eb3e965_legendary
+herocat generate "Hogwarts Legacy"
+```
+
+`generate` consulta IGDB **por id** para juegos ya mapeados en `games.json` (re-escribe sus categorías sin búsqueda fuzzy). La búsqueda fuzzy por título se usa solo para juegos sin id de IGDB guardado.
+
+Al terminar, `config.json` se **reconstruye siempre desde `games.json`** (slug canónico → nombre del registro canónico), de modo que `customCategories` refleja exactamente el mapeo y las categorías obsoletas desaparecen. Si algún registro del catálogo aún tiene `name` vacío o igual al slug, `generate` consulta IGDB (`/themes` y `/genres`) para traer el **nombre canónico** oficial y lo corrige en `categories.json`.
+
 # Asignación manual (acepta app_name_runner o título)
 herocat assign --category "RPG" --game "1133514031_gog"
 herocat assign --category "RPG" --game "Prey"

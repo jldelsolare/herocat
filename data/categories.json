@@ -1,0 +1,455 @@
+{
+  "version": 1,
+  "categories": {
+    "4x-explore-expand-exploit-and-exterminate": {
+      "name": "4X (explore, expand, exploit, and exterminate)",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "41"
+          ]
+        }
+      }
+    },
+    "action": {
+      "name": "Action",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "1"
+          ]
+        }
+      }
+    },
+    "adventure": {
+      "name": "Adventure",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "31"
+          ]
+        }
+      }
+    },
+    "arcade": {
+      "name": "Arcade",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "33"
+          ]
+        }
+      }
+    },
+    "business": {
+      "name": "Business",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "28"
+          ]
+        }
+      }
+    },
+    "card-board-game": {
+      "name": "Card & Board Game",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "35"
+          ]
+        }
+      }
+    },
+    "comedy": {
+      "name": "Comedy",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "27"
+          ]
+        }
+      }
+    },
+    "drama": {
+      "name": "Drama",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "31"
+          ]
+        }
+      }
+    },
+    "educational": {
+      "name": "Educational",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "34"
+          ]
+        }
+      }
+    },
+    "erotic": {
+      "name": "Erotic",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "42"
+          ]
+        }
+      }
+    },
+    "fantasy": {
+      "name": "Fantasy",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "17"
+          ]
+        }
+      }
+    },
+    "fighting": {
+      "name": "Fighting",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "4"
+          ]
+        }
+      }
+    },
+    "hack-and-slash-beat-em-up": {
+      "name": "Hack and slash/Beat 'em up",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "25"
+          ]
+        }
+      }
+    },
+    "historical": {
+      "name": "Historical",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "22"
+          ]
+        }
+      }
+    },
+    "horror": {
+      "name": "Horror",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "19"
+          ]
+        }
+      }
+    },
+    "indie": {
+      "name": "Indie",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "32"
+          ]
+        }
+      }
+    },
+    "kids": {
+      "name": "Kids",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "35"
+          ]
+        }
+      }
+    },
+    "moba": {
+      "name": "MOBA",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "36"
+          ]
+        }
+      }
+    },
+    "music": {
+      "name": "Music",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "7"
+          ]
+        }
+      }
+    },
+    "mystery": {
+      "name": "Mystery",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "43"
+          ]
+        }
+      }
+    },
+    "non-fiction": {
+      "name": "Non-fiction",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "32"
+          ]
+        }
+      }
+    },
+    "open-world": {
+      "name": "Open world",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "38"
+          ]
+        }
+      }
+    },
+    "party": {
+      "name": "Party",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "40"
+          ]
+        }
+      }
+    },
+    "pinball": {
+      "name": "Pinball",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "30"
+          ]
+        }
+      }
+    },
+    "platform": {
+      "name": "Platform",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "8"
+          ]
+        }
+      }
+    },
+    "point-and-click": {
+      "name": "Point-and-click",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "2"
+          ]
+        }
+      }
+    },
+    "puzzle": {
+      "name": "Puzzle",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "9"
+          ]
+        }
+      }
+    },
+    "quiz-trivia": {
+      "name": "Quiz/Trivia",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "26"
+          ]
+        }
+      }
+    },
+    "racing": {
+      "name": "Racing",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "10"
+          ]
+        }
+      }
+    },
+    "real-time-strategy-rts": {
+      "name": "Real Time Strategy (RTS)",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "11"
+          ]
+        }
+      }
+    },
+    "role-playing-rpg": {
+      "name": "Role-playing (RPG)",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "12"
+          ]
+        }
+      }
+    },
+    "romance": {
+      "name": "Romance",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "44"
+          ]
+        }
+      }
+    },
+    "sandbox": {
+      "name": "Sandbox",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "33"
+          ]
+        }
+      }
+    },
+    "science-fiction": {
+      "name": "Science fiction",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "18"
+          ]
+        }
+      }
+    },
+    "shooter": {
+      "name": "Shooter",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "5"
+          ]
+        }
+      }
+    },
+    "simulator": {
+      "name": "Simulator",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "13"
+          ]
+        }
+      }
+    },
+    "sport": {
+      "name": "Sport",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "14"
+          ]
+        }
+      }
+    },
+    "stealth": {
+      "name": "Stealth",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "23"
+          ]
+        }
+      }
+    },
+    "strategy": {
+      "name": "Strategy",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "15"
+          ]
+        }
+      }
+    },
+    "survival": {
+      "name": "Survival",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "21"
+          ]
+        }
+      }
+    },
+    "tactical": {
+      "name": "Tactical",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "24"
+          ]
+        }
+      }
+    },
+    "thriller": {
+      "name": "Thriller",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "20"
+          ]
+        }
+      }
+    },
+    "turn-based-strategy-tbs": {
+      "name": "Turn-based strategy (TBS)",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "16"
+          ]
+        }
+      }
+    },
+    "visual-novel": {
+      "name": "Visual Novel",
+      "sources": {
+        "igdb": {
+          "genres": [
+            "34"
+          ]
+        }
+      }
+    },
+    "warfare": {
+      "name": "Warfare",
+      "sources": {
+        "igdb": {
+          "themes": [
+            "39"
+          ]
+        }
+      }
+    }
+  }
+}
